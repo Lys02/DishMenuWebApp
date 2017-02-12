@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@'
+import{RouterModule} from '@angular/router';
 @Component({
   selector:'menu',
   templateUrl:'./menu.component.html',
-//  styleUrls: ['./menu.component.scss']
+styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent{
 

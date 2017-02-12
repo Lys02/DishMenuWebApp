@@ -4,12 +4,14 @@
 
 <!--righ pane-->
 
-<div class="panel panel1 col s3">
-  <ul>
-    <li><a [routerLink]="['/main/menu']" routerLinkActive="active" (click)="layout.close()">Menu Management</a></li>
-    <li><a [routerLink]="['/restaurant']" routerLinkActive="active">Restaurant Profile Management</a></li>
-  </ul>
+<div class="panel col s3">
+<div class="collection">
+    <a [routerLink]="['/main/dashboard']" routerLinkActive="active" (click)="layout.close()" class="collection-item">Dashboard</a>
+    <a [routerLink]="['/main/menu']" routerLinkActive="active" (click)="layout.close()" class="collection-item">Menu Management</a>
 
+    <a [routerLink]="['/restaurant']" routerLinkActive="active" class="collection-item">Restaurant Profile Management</a>
+
+</div>
 </div>
 
   <router-outlet></router-outlet>
