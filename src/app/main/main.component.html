@@ -1,0 +1,15 @@
+<!--navigation bar -->
+
+<!--left pane -->
+
+<!--righ pane-->
+
+<div class="panel panel1 col s3">
+  <ul>
+    <li><a [routerLink]="['/main/menu']" routerLinkActive="active" (click)="layout.close()">Menu Management</a></li>
+    <li><a [routerLink]="['/restaurant']" routerLinkActive="active">Restaurant Profile Management</a></li>
+  </ul>
+
+</div>
+
+  <router-outlet></router-outlet>
