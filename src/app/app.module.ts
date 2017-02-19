@@ -8,19 +8,21 @@ import {MainComponent} from './main/main.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES, APP_ROUTES_PROVIDER } from './app.routes';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {MenuGroupComponent} from './menu/menuGroup/menu-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuGroupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-  APP_ROUTES,
+  APP_ROUTES
   ],
   providers: [APP_ROUTES_PROVIDER],
   bootstrap: [AppComponent]

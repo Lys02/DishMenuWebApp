@@ -3,7 +3,7 @@ import {MenuComponent} from './menu/menu.component';
 //import {RestaurantComponent} from './restaurant-profile/restaurant.component';
 import {Routes, RouterModule} from "@angular/router"
 import {DashboardComponent} from './dashboard/dashboard.component';
-
+import {MenuGroupComponent} from './menu/menuGroup/menu-group.component';
 
  const routes:Routes=[
    {  path:'main',
@@ -11,12 +11,17 @@ import {DashboardComponent} from './dashboard/dashboard.component';
       children:[
         {
           path:'dashboard',
-          component:DashboardComponent
-        }
+          component:DashboardComponent,
+        },
      {
         path:'menu',
-        component:MenuComponent
+        component:MenuComponent,
     },
+    {
+      path:'menugroup',
+      component:MenuGroupComponent,
+    }
+
     /* {
        path:'/restaurant',
        component:RestaurantComponent

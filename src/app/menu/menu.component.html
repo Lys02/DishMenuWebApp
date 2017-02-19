@@ -1,30 +1,35 @@
 <div class="container" >
-<div class="row">
-        <div class="col s10 abc">
+    <div class="row">
+      <div class="col s10 abc">
+
+        <!--input part -->
           <div class="card  red darken-1">
             <div class="card-content white-text">
               <span class="card-title">Menus</span>
               <div class="input-field">
               <input placeholder="Enter the type of cuisine..." id="cuisine_name" type="text" class="validate">
             </div>
-
             </div>
         </div>
-        <div class="card card2  red darken-1">
-      <div class="card-action">
 
+
+        <!--list part-->
+    <div class="card card2  red darken-1">
+      <div class="card-action">
       <ul class="collection">
         <li class="collection-item"><div>Chinese<a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i>
             </a></div></li>
-        <li class="collection-item"><div>Indian<a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a></div></li>
+        <li class="collection-item"><div>Indian<a [routerLink]="['/main/menugroup']" routerLinkActive="active" (click)="layout.close()"class="secondary-content">
+          <i class="material-icons">mode_edit</i></a></div></li>
         <li class="collection-item"><div>Goan<a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a></div></li>
         <li class="collection-item"><div>Italian<a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a></div></li>
+        
       </ul>
-
-            <!--  <a href="#">This is a link</a>
-              <a href="#">This is a link</a> -->
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>

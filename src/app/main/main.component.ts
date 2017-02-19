@@ -7,6 +7,8 @@ import{RouterModule} from '@angular/router';
   styleUrls:['./main.component.scss']
   })
 
-export class MainComponent{
+export class MainComponent {
+
+// $(".button-collapse").sideNav();
 
 }
