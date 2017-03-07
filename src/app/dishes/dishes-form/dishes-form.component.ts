@@ -2,41 +2,39 @@ import { Component, EventEmitter, Input, OnChanges,OnInit } from '@angular/core'
 import { NgForm }    from '@angular/forms';
 import {Observable} from 'rxjs/Rx';
 import{RouterModule} from '@angular/router';
-import {MenuService} from '../services/menu.service';
-import {Menu} from '../model/menus';
-import {EmitterService} from '../emitter.service';
+import{DishesService} from '../../services/dishes.service';
+import {Dish} from '../../model/dishes';
+import {EmitterService} from '../../emitter.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-
 @Component({
-  selector:'menu',
-  templateUrl:'./menu.component.html',
-styleUrls: ['./menu.component.scss']
+  selector: 'dish-form',
+  templateUrl: './dishes-form.component.html',
+styleUrls: ['./dishes-form.component.css']
 })
 
-
-export class MenuComponent implements OnChanges{
-  constructor(private menuService: MenuService){}
+export class DishesFormComponent implements OnChanges{
+  constructor(private dishesService: DishesService){}
       // Local properties
-      private model = new Menu(new Date(), '', '');
+      private model = new Dish(new Date(),'','','',false,false,false,false,false,false,false,0,0);
       private editing = false;
-       menus: Menu[];
+       dishes: Dish[];
       // Input properties
-      @Input() menu: Menu;
+    @Input() dish: Dish;
     @Input() listId: string;
     @Input() editId:string;
 
     ngOnInit() {
                 // Load comments
-                this.loadMenus();
+                this.loadDishes();
 
         }
 
-        loadMenus() {
+        loadDishes() {
             // Get all comments
-             this.menuService.getMenus()
+             this.dishesService.getDishes()
                                .subscribe(
-                                   menus => this.menus = menus, //Bind to view
+                                  dishes => this.dishes = dishes, //Bind to view
                                     err => {
                                         // Log errors if any
                                         console.log(err);
@@ -46,30 +44,31 @@ export class MenuComponent implements OnChanges{
         ngOnChanges(changes:any) {
             // Listen to the 'list'emitted event so as populate the model
             // with the event payload
-            EmitterService.get(this.listId).subscribe((menus:Menu[]) => { this.loadMenus()});
+            EmitterService.get(this.listId).subscribe((dishes:Dish[]) => { this.loadDishes()});
 
         }
 
 
 //Submit Menus on button click
-  submitMenu(){
-   let menuOperation:Observable<Menu[]>;
+  submitDish(){
+   let menuOperation:Observable<Dish[]>;
    console.log(this.model);
    if(!this.editing)
    {
-   menuOperation = this.menuService.addMenu(this.model)
+   menuOperation = this.dishesService.addDish(this.model)
     }
   else {
-          menuOperation = this.menuService.updateMenu(this.model)
+          menuOperation = this.dishesService.updateDish(this.model)
         }
         window.location.reload();
 
   menuOperation.subscribe(
-                menus => {
+              dishes => {
                                     // Emit list event
-              EmitterService.get(this.listId).emit(menus);
+              EmitterService.get(this.listId).emit(dishes);
                                     // Empty model
-              this.model = new Menu(new Date(), '', '');
+                this.model = new Dish(new Date(),'','','',false,false,false,false,false,false,false,0,0);
+
                                     // Switch editing status
               if(this.editing) this.editing = !this.editing;
                                 },

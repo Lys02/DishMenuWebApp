@@ -3,7 +3,9 @@ import {MenuComponent} from './menu/menu.component';
 //import {RestaurantComponent} from './restaurant-profile/restaurant.component';
 import {Routes, RouterModule} from "@angular/router"
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {MenuGroupComponent} from './menu/menuGroup/menu-group.component';
+import {MenuGroupComponent} from './menuGroup/menu-group.component';
+import {DishesComponent} from './dishes/dishes.component';
+import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
 
  const routes:Routes=[
    {  path:'main',
@@ -16,11 +18,14 @@ import {MenuGroupComponent} from './menu/menuGroup/menu-group.component';
      {
         path:'menu',
         component:MenuComponent,
-    },
-    {
-      path:'menugroup',
-      component:MenuGroupComponent,
-    }
+      },
+
+      {   path:'menuGroup', component:MenuGroupComponent  },
+
+      {path:'dishes',component:DishesComponent},
+
+      {path:'dishform',component:DishesFormComponent}
+
 
     /* {
        path:'/restaurant',

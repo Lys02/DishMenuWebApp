@@ -6,6 +6,8 @@
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
     "mapRoot": "./",
+    "map":
+  " '@angular/material': 'npm:@angular/material/bundles/material.umd.js'",
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
@@ -14,6 +16,6 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
-  
+
   }
 }

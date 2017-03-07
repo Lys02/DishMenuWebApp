@@ -7,7 +7,5 @@ import {MainComponent} from'./main/main.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-showNavBar(){
-  
-}
+
 }
