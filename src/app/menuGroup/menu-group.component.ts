@@ -21,14 +21,17 @@ export class MenuGroupComponent{
       private editing = false;
        menuGroups: MenuGroup[];
       // Input properties
+       @Input() valueToPass:number;
       @Input() menuGroup: MenuGroup;
     @Input() listId: string;
     @Input() editId:string;
 
+
+
     ngOnInit() {
                 // Load comments
                 this.loadMenuGroups();
-
+                console.log(this.valueToPass);
         }
 
         loadMenuGroups() {

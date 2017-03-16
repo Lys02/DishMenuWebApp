@@ -13,7 +13,7 @@ export class MenuService {
      constructor (private http: Http) {}
      // private instance variable to hold base url
      private menusUrl = 'http://localhost:3000/restaurants/1/menus';
-
+     private menu="http://localhost:3000/menus";
      getMenus() : Observable<Menu[]> {
 
          // ...using get request
@@ -48,8 +48,8 @@ export class MenuService {
 
     // Delete a comment
     removeMenu (id:string): Observable<Menu[]> {
-      console.log(id);
-        return this.http.delete(this.menusUrl + "/?" + id + "=" + id) // ...using put request
+    //  console.log(id);
+        return this.http.delete(`${this.menu}/${id}`) // ...using put request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }

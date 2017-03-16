@@ -6,6 +6,7 @@ import{DishesService} from '../../services/dishes.service';
 import {Dish} from '../../model/dishes';
 import {EmitterService} from '../../emitter.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'dish-form',
@@ -13,9 +14,11 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 styleUrls: ['./dishes-form.component.css']
 })
 
-export class DishesFormComponent implements OnChanges{
-  constructor(private dishesService: DishesService){}
+export class DishesFormComponent implements OnInit{
+
+  constructor(private dishesService: DishesService,private fb: FormBuilder){}
       // Local properties
+    public myForm: FormGroup;
       private model = new Dish(new Date(),'','','',false,false,false,false,false,false,false,0,0);
       private editing = false;
        dishes: Dish[];
@@ -24,9 +27,25 @@ export class DishesFormComponent implements OnChanges{
     @Input() listId: string;
     @Input() editId:string;
 
-    ngOnInit() {
-                // Load comments
-                this.loadDishes();
+    ngOnInit():any {
+
+      this.myForm = this.fb.group(
+        {
+            menu_item_name: ['', Validators.required],
+            menu_item_description: ['', Validators.required],
+            menu_item_price: ['', Validators.required],
+            disabled: ['', Validators.required],
+            special: ['', Validators.required],
+            vegetarian: ['', Validators.required],
+            vegan: ['', Validators.required],
+            kosher: ['', Validators.required],
+            halal: ['', Validators.required],
+            gluten_free: ['', Validators.required],
+            menu_item_calries: ['', Validators.required],
+            menu_item_heat_index: ['', Validators.required]
+
+ });
+              
 
         }
 

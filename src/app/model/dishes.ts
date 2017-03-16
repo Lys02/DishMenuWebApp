@@ -3,7 +3,7 @@ export class Dish{
     public id?:Date,
     public menu_item_name?:string,
     public menu_item_description?:string,
-    public menu_item_price:string,
+    public menu_item_price?:string,
     public disabled?:boolean,
     public special?:boolean,
     public vegetarian?:boolean,

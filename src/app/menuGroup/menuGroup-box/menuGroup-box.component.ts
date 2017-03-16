@@ -11,7 +11,8 @@ import {MenuGroupService} from '../../services/menuGroup.service';
       <li class="collection-item">
         {{menuGroup.menu_group_name}}
       <a [routerLink]="['/main/dishes']" routerLinkActive="active" (click)="layout.close()"class="secondary-content"><i class="material-icons">mode_edit</i></a>
-
+      <button (click)="deleteMenuGroup(this.menuGroup.id)">remove</button>
+      </li>
         </div>
           `
 })
@@ -35,6 +36,7 @@ export class MenuGroupBoxComponent{
                                     // Log errors if any
                                     console.log(err);
                                 });
+                        this.menuGroupService.getMenuGroups();
     }
 
 }

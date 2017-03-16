@@ -2,65 +2,65 @@
 <div class="container">
 <md-card>
   <md-card-content>
-<form (ngSubmit)="submitDish()">
+<form [formGroup]="myForm" (ngSubmit)="submitDish()">
   <md-input-container>
     <h6>The dish is called...</h6>
-    <input mdInput [(ngModel)]="model.menu_item_name.value" name="menu_item_name"placeholder="Dish Name">
+    <input mdInput formControlname="menu_item_name"placeholder="Dish Name">
   </md-input-container>
   <br>
   <md-input-container >
       <h6>Please provide a description</h6>
-      <textarea mdInput [(ngModel)]="model.menu_item_description.value" name="menu_item_description" placeholder="Please provide a description"></textarea>
+      <textarea mdInput  formControlname="menu_item_description" placeholder="Please provide a description"></textarea>
   </md-input-container>
   <br>
   <md-input-container >
         <h6>Its priced at?</h6>
-      <input mdInput  [(ngModel)]="model.menu_item_price.value" name="menu_item_price" placeholder="Dish price" >
+      <input mdInput formControlname="menu_item_price" placeholder="Dish price" >
   </md-input-container>
 <br>
 
 <label><h6>Would you like to include the dish in the current menu?</h6></label>
-<md-slide-toggle [(ngModel)]="model.disabled.value" name="disabled">Yes</md-slide-toggle>
+<md-slide-toggle formControlname="disabled">Yes</md-slide-toggle>
 
   <br>
 
 <label><h6>Is it a special?</h6></label>
-  <md-slide-toggle [(ngModel)]="model.special.value" name="special">Yes</md-slide-toggle>
+  <md-slide-toggle formControlname="special">Yes</md-slide-toggle>
 
     <br>
 
 <label><h6>Vegetarian?</h6></label>
-      <md-slide-toggle [(ngModel)]="model.vegetarian.value" name="vegetarian">Yes</md-slide-toggle>
+      <md-slide-toggle formControlname="vegetarian">Yes</md-slide-toggle>
 
     <br>
 
 <label><h6>Vegan?</h6></label>
-      <md-slide-toggle [(ngModel)]="model.vegan.value" name="vegan">Yes</md-slide-toggle>
+      <md-slide-toggle formControlname="vegan">Yes</md-slide-toggle>
 
     <br>
 
  <label><h6>Kosher?</h6></label>
-      <md-slide-toggle [(ngModel)]="model.kosher.value" name="kosher">Yes</md-slide-toggle>
+      <md-slide-toggle  formControlname="kosher">Yes</md-slide-toggle>
 
       <br>
 
  <label><h6>Halal?</h6></label>
-    <md-slide-toggle [(ngModel)]="model.halal.value" name="halal">Yes</md-slide-toggle>
+    <md-slide-toggle  formControlname="halal">Yes</md-slide-toggle>
 
     <br>
    <label><h6>Gluten free?</h6></label>
-    <md-slide-toggle [(ngModel)]="model.gluten_free.value" name="gluten_free">Yes</md-slide-toggle>
+    <md-slide-toggle  formControlname="gluten_free">Yes</md-slide-toggle>
 
     <br>
     <md-input-container>
       <h6>Please provide a calorie index</h6>
-    <input mdInput[(ngModel)]="model.menu_item_calories.value" name="menu_item_calories" placeholder="Calories??" >
+    <input mdInput  formControlname="menu_item_calories" placeholder="Calories??" >
       </md-input-container>
     <br>
 
     <label>Rate the heat index of the dish</label>
 
-    <md-slider min="1" max="10" step="0.5" [(ngModel)]="model.menu_item_heat_index.value" name="menu_item_heat_index"></md-slider>Spicy!
+    <md-slider min="1" max="10" step="0.5"  formControlname="menu_item_heat_index"></md-slider>Spicy!
     <br>
   <button> Submit</button>
 </form>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {MenuComponent} from './menu/menu.component';
 import { AppComponent } from './app.component';
@@ -38,6 +38,7 @@ import 'hammerjs';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
   APP_ROUTES,
   MaterialModule

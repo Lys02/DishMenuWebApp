@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { MenuGroup }  from '../model/menuGroups';
 import {Observable} from 'rxjs/Rx';
-
+//import {MenuComponent} from '../menu/menu-box/menu-box.component';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -14,8 +14,8 @@ export class MenuGroupService {
      // private instance variable to hold base url
 
 
-     private menuGroupsUrl = 'http://localhost:3000/menus/1/menu_groups';
-
+     private menuGroupsUrl = 'http://localhost:3000/menus/2/menu_groups';
+     private menuGroup='http://localhost:3000/menu_groups';
      getMenuGroups() : Observable<MenuGroup[]> {
 
          // ...using get request
@@ -51,7 +51,7 @@ export class MenuGroupService {
     // Delete a comment
     removeMenuGroup (id:string): Observable<MenuGroup[]> {
       console.log(id);
-        return this.http.delete(this.menuGroupsUrl + "/?" + id + "=" + id) // ...using put request
+        return this.http.delete(`${this.menuGroup}/${id}`) // ...using put request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }
