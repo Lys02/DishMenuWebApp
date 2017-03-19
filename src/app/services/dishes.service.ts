@@ -12,8 +12,8 @@ export class DishesService {
      // Resolve HTTP using the constructor
      constructor (private http: Http) {}
      // private instance variable to hold base url
-     private dishesUrl = 'http://localhost:3000/menu_groups/1/menu_items';
-
+     private dishesUrl = 'http://localhost:3000/menu_groups/4/menu_items';
+     private dishUrl='http://localhost:3000//menu_items';
      getDishes() : Observable<Dish[]> {
 
          // ...using get request
@@ -49,7 +49,7 @@ export class DishesService {
     // Delete a comment
     removeDish (id:string): Observable<Dish[]> {
       console.log(id);
-        return this.http.delete(this.dishesUrl + "/?" + id + "=" + id) // ...using put request
+        return this.http.delete(`${this.dishUrl}/${id}`) // ...using put request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }

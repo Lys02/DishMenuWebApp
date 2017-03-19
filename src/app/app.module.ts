@@ -19,6 +19,8 @@ import {DishesComponent} from './dishes/dishes.component';
 import {DishesBoxComponent} from './dishes/dishes-box/dishes-box.component';
 import {DishesService} from './services/dishes.service';
 import {DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
+import {MenuListComponent} from './menu/menu-list/menu-list.component';
+import {DishesListComponent} from './dishes/dishes-list/dishes-list.component';
 import 'hammerjs';
 
 @NgModule({
@@ -32,7 +34,9 @@ import 'hammerjs';
     MenuGroupBoxComponent,
     DishesComponent,
     DishesBoxComponent,
-    DishesFormComponent
+    DishesFormComponent,
+    MenuListComponent,
+    DishesListComponent
 
   ],
   imports: [

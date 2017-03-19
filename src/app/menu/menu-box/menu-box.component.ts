@@ -12,8 +12,10 @@ import {MenuService} from '../../services/menu.service';
         {{menu.menu_name}}
         <a [routerLink]="['/main/menuGroup']" routerLinkActive="active" (click)="layout.close()"class="secondary-content">
         <i class="material-icons">mode_edit</i></a>
-        <a><i class="material-icons">ic_icon</i></a></li>
-      <button (click)="deleteMenu(this.menu.id)">remove</button>
+        <a><i class="material-icons">ic_icon</i></a>
+        <button (click)="deleteMenu(this.menu.id)">remove</button>
+        </li>
+
         </div>
           `
 })

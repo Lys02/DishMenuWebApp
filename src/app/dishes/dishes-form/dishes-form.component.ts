@@ -34,30 +34,19 @@ export class DishesFormComponent implements OnInit{
             menu_item_name: ['', Validators.required],
             menu_item_description: ['', Validators.required],
             menu_item_price: ['', Validators.required],
-            disabled: ['', Validators.required],
-            special: ['', Validators.required],
-            vegetarian: ['', Validators.required],
-            vegan: ['', Validators.required],
-            kosher: ['', Validators.required],
-            halal: ['', Validators.required],
-            gluten_free: ['', Validators.required],
-            menu_item_calries: ['', Validators.required],
+            disabled: [''],
+            special: [''],
+            vegetarian: [''],
+            vegan: [''],
+            kosher: [''],
+            halal: [''],
+            gluten_free: [''],
+            menu_item_calories: ['', Validators.required],
             menu_item_heat_index: ['', Validators.required]
 
  });
-              
 
-        }
 
-        loadDishes() {
-            // Get all comments
-             this.dishesService.getDishes()
-                               .subscribe(
-                                  dishes => this.dishes = dishes, //Bind to view
-                                    err => {
-                                        // Log errors if any
-                                        console.log(err);
-                                    });
         }
 
         ngOnChanges(changes:any) {
@@ -69,17 +58,17 @@ export class DishesFormComponent implements OnInit{
 
 
 //Submit Menus on button click
-  submitDish(){
+  submitDish(myForm){
    let menuOperation:Observable<Dish[]>;
-   console.log(this.model);
-   if(!this.editing)
-   {
-   menuOperation = this.dishesService.addDish(this.model)
-    }
-  else {
-          menuOperation = this.dishesService.updateDish(this.model)
-        }
-        window.location.reload();
+   console.log(myForm);
+  //  if(!this.editing)
+  //  {
+   menuOperation = this.dishesService.addDish(myForm);
+  //   }
+  // else {
+  //         menuOperation = this.dishesService.updateDish(this.model)
+  //       }
+  //       window.location.reload();
 
   menuOperation.subscribe(
               dishes => {

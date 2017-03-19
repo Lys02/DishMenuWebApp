@@ -6,7 +6,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {MenuGroupComponent} from './menuGroup/menu-group.component';
 import {DishesComponent} from './dishes/dishes.component';
 import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
-
+import {MenuListComponent} from './menu/menu-list/menu-list.component';
+import {DishesListComponent} from './dishes/dishes-list/dishes-list.component';
  const routes:Routes=[
    {  path:'main',
       component:MainComponent,
@@ -24,7 +25,11 @@ import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
 
       {path:'dishes',component:DishesComponent},
 
-      {path:'dishform',component:DishesFormComponent}
+      {path:'dishform',component:DishesFormComponent},
+
+      {path:'menu-list',component:MenuListComponent},
+
+      {path:'dishes-list',component:DishesListComponent}
 
 
     /* {
