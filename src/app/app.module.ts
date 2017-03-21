@@ -20,6 +20,23 @@ import {DishesBoxComponent} from './dishes/dishes-box/dishes-box.component';
 import {DishesService} from './services/dishes.service';
 import {DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
 import 'hammerjs';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {AF} from './providers/af';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFire, AuthProviders, AuthMethods,FirebaseUrl} from 'angularfire2'
+
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyCBUbJVSL3ij41LLOxOcMyPEiS62_FQXvo",
+    authDomain: "fir-test-a7922.firebaseapp.com",
+    databaseURL: "https://fir-test-a7922.firebaseio.com",
+    storageBucket: "fir-test-a7922.appspot.com",
+    messagingSenderId: "341328460843"
+};
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +49,8 @@ import 'hammerjs';
     MenuGroupBoxComponent,
     DishesComponent,
     DishesBoxComponent,
-    DishesFormComponent
+    DishesFormComponent,
+    LoginPageComponent
 
   ],
   imports: [
@@ -41,11 +59,12 @@ import 'hammerjs';
     ReactiveFormsModule,
     HttpModule,
   APP_ROUTES,
-  MaterialModule
+  MaterialModule,
+  AngularFireModule.initializeApp(firebaseConfig,myFirebaseAuthConfig)
   ],
 
 
-  providers: [APP_ROUTES_PROVIDER,MenuService,MenuGroupService,EmitterService,DishesService],
+  providers: [APP_ROUTES_PROVIDER,MenuService,MenuGroupService,EmitterService,DishesService,AF,AngularFire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

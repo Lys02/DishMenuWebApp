@@ -6,6 +6,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {MenuGroupComponent} from './menuGroup/menu-group.component';
 import {DishesComponent} from './dishes/dishes.component';
 import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+
 
  const routes:Routes=[
    {  path:'main',
@@ -24,7 +26,9 @@ import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
 
       {path:'dishes',component:DishesComponent},
 
-      {path:'dishform',component:DishesFormComponent}
+      {path:'dishform',component:DishesFormComponent},
+
+      
 
 
     /* {
@@ -32,7 +36,8 @@ import{DishesFormComponent} from './dishes/dishes-form/dishes-form.component';
        component:RestaurantComponent
      }*/
    ],
- }
+ },
+ { path: 'login', component: LoginPageComponent }
  ];
  export const APP_ROUTES_PROVIDER: any[] = [];
 
